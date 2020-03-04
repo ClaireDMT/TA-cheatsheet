@@ -6,7 +6,6 @@
 PG search search for one input in several column or tables. We want a SQL request that may have one or several inputs to search on several colums
 
 ### Solution
-`def index`
 
    `@jobs = Job.all`
    
@@ -16,7 +15,6 @@ PG search search for one input in several column or tables. We want a SQL reques
    
    `@jobs = @jobs.where(name: params[:name]) if params[:name].present?`
    
-`end`
 
 *We narrow the search from ActiveRecord collection*
 
