@@ -21,3 +21,11 @@
 3. Buy your domain name from Namecheap by following these tutorials from Seb:
  - [Domain name purchase and setup](https://www.lewagon.com/blog/buying-a-domain-on-namecheap-and-pointing-it-to-heroku)
  - [SSL certificate purchase and setup](https://www.lewagon.com/blog/setting-up-a-free-ssl-certificate-on-heroku)
+
+
+### ON REMOTE
+1. have a call with your designated teacher: travelworms: @André R. Ferrer, fleapit: @Valerie 
+2. create trello board for your team (implement tasks later)
+3. copy the checklist from this board: https://trello.com/b/WB3fRTj2/trello-demo so we can track your progress
+4. invite TA for your trello boards through the project-group-channel
+5. validate every step with the teacher by creating a ticket :simple-ticket: 
