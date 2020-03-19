@@ -22,3 +22,18 @@ Juste au-dessus on vérifie qu’on a bien stocké les résultats de la search d
 On crée la show de la méthode search du kitchens controller : search.html.erb
 
 On copie colle la div à l’id map de l’index vers la show de search
+
+
+## Custom marker - Mapbox
+
+### Solution
+
+Pour le custom marker, il faut bien mettre l’extension de la photo (.png, .jpg, etc) car sinon : tout est nickel en local mais la map est cassée sur Heroku
+
+   @markers = @flats.map do |flat|
+     {
+       lat: flat.latitude,
+       lng: flat.longitude,
+       infoWindow: render_to_string(partial: "info_window", locals: { flat: flat }),
+       image_url: helpers.asset_url('heart-marker.png')
+     }
