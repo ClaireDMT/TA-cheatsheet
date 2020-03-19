@@ -37,3 +37,47 @@ Pour le custom marker, il faut bien mettre l’extension de la photo (.png, .jpg
        infoWindow: render_to_string(partial: "info_window", locals: { flat: flat }),
        image_url: helpers.asset_url('heart-marker.png')
      }
+ 
+ ## Mapbox - Map when zero marker
+
+### Problème 
+Usecase : sur l’app, j’ai une barre de recherche, j’y rechercheune ville, et sur la carte s’affiche mes éléments près de cette ville.
+Le probleme est que, quand je recherche une ville près de laquelle il n’y a aucun élément, la carte m’amène dans le golfe de Guinée (longitude zéro, latitude zéro).
+
+### Solution 
+
+La solution est de géocoder la query, puis de placer sur la carte un market correspondant à ces coordonnées GPS.
+
+const query = document.getElementById('query').value;
+      fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${mapElement.dataset.mapboxApiKey}`)
+     .then(response => response.json())
+     .then((data) => {
+       const longitude = data.features[0].geometry.coordinates[0];
+       const latitude = data.features[0].geometry.coordinates[1];
+     console.log(longitude);
+       const superMarker = new mapboxgl.Marker()
+         .setLngLat([ longitude, latitude ])
+         .addTo(map);
+     const bounds = new mapboxgl.LngLatBounds();
+     bounds.extend([ longitude, latitude ]);
+     map.fitBounds(bounds, { padding: 20, maxZoom: 10, duration: 0 });
+       });
+   markers.forEach((marker) => {
+     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
+       const element = document.createElement('div');
+       element.className = 'marker';
+       element.style.backgroundImage = `url('${marker.image_url}')`;
+       element.style.backgroundSize = 'contain';
+       element.style.width = '80px';
+       element.style.height = '80px';
+       element.style.cursor = 'pointer';
+       new mapboxgl.Marker(element)
+         .setLngLat([ marker.lng, marker.lat ])
+         .setPopup(popup)
+         .addTo(map);
+       });
+   };
+
+## Mapbox - Cluster
+Resource: https://docs.mapbox.com/mapbox-gl-js/example/cluster/
+
