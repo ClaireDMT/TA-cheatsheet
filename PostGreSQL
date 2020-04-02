@@ -1,0 +1,11 @@
+# PostgreSQL
+
+## Error to connect to the DB
+
+### Error message: "pg connectionbad could not connect to server no such file or directory"
+
+### Solution
+Some old PID (process id) file to remove. 
+Your computer didn't complete the shutdown process completely which means postgres didn't delete the PID (process id) file. 
+
+[solution](https://stackoverflow.com/questions/19828385/pgconnectionbad-could-not-connect-to-server-connection-refused)
