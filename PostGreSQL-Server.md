@@ -13,24 +13,29 @@ Your computer didn't complete the shutdown process completely which means postgr
 ## Error to connect to the DB on MAC
 ### Error message: "could not connect to server: No such file or directory"
 
-### Solution
+### Solution - Restart Postgres
+- Ubuntu
+`sudo service postgresql start`
+- Mac
+`brew services restart postgresql`
 
-Uninstall postgres
-brew uninstall postgresql
+### Solution - Uninstall and reinstall Postgres
+
+1. Uninstall postgres
+`brew uninstall postgresql`
 2. Reinstall postgres
-brew install postgresql
+`brew install postgresql`
 3. Check that postgress was installed
-psql -d postgres
+`psql -d postgres`
 This command should take you to a irb like interface inside your terminal 
 If you get no errors and you are in that interface run step 4
 4. Exit postgress interface
 \q
 5. Go up one folder to your /code/GITHUBUSERNAME, and delete your previous mr cocktail
-cd ..
-rm -rf rails-mister-cocktail
+`cd ..
+rm -rf rails-mister-cocktail`
 6. Make sure you go into your github account and delete the old repository of mister cocktail
 7. Start the challenge again 
-11:58
 Specifically for OSX users
 
 ## Localhost never loading
