@@ -18,6 +18,8 @@ PG search search for one input in several column or tables. We want a SQL reques
 
 *We narrow the search from ActiveRecord collection*
 
+## Add filters
+[tuto](https://code.avi.nyc/turbo-frame-search-filters)
 
 ## Implemment Algolia Search
 
